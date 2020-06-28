@@ -38,7 +38,7 @@ module.exports = (env) => {
   ]
   const prodConfig = [
     require('./webpack/styles/styleProdRules'),
-    require('./webpack/settings/dynamic-cdn'),
+    // require('./webpack/settings/dynamic-cdn'),
     // require('./webpack/settings/compression'),//產生.gz
   ]
   if (env === 'dev') {

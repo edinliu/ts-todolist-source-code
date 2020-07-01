@@ -1,28 +1,48 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
-export default function InputAndSubmit(props: {
+interface InputAndSubmit {
   onSubmit?: (value: string) => void,
   onInputValueChange?: (value: string) => void,
   buttonName?: string,
   defaultInputValue?: string,
-}) {
-  const { onSubmit, onInputValueChange, buttonName = "SUBMIT", defaultInputValue = "please enter" } = props;
-  const [inputValue, setInputValue] = useState(defaultInputValue)
-  useEffect(() => { setInputValue(defaultInputValue) }, [defaultInputValue])
+}
+export default function InputAndSubmit(props: InputAndSubmit) {
+  const {
+    onSubmit, onInputValueChange, buttonName, defaultInputValue,
+  } = props;
+  const [inputValue, setInputValue] = useState(defaultInputValue);
+  useEffect(() => { setInputValue(defaultInputValue); }, [defaultInputValue]);
+  const inputSubmit = () => {
+    onSubmit(inputValue);
+    setInputValue('');
+  };
   return (
     <div className="d-flex">
-      <input type="text" className="rounded mr-2"
+      <input
+        onKeyUp={(e) => { if (e.keyCode === 13) inputSubmit(); }}
+        type="text"
+        className="rounded mr-2"
         onChange={(e) => {
-          onInputValueChange && onInputValueChange(e.target.value);
+          if (onInputValueChange) onInputValueChange(e.target.value);
           setInputValue(e.target.value);
         }}
-        onFocus={() => { inputValue === defaultInputValue && setInputValue("") }}
-        value={inputValue} />
-      <button onClick={() => {
-        onSubmit(inputValue);
-        setInputValue("");
-      }} className="btn btn-primary">{buttonName}</button>
+        onFocus={() => { if (inputValue === defaultInputValue) setInputValue(''); }}
+        value={inputValue}
+      />
+      <button
+        type="submit"
+        onClick={inputSubmit}
+        className="btn btn-primary"
+      >
+        {buttonName}
+      </button>
     </div>
-  )
+  );
 }
+InputAndSubmit.defaultProps = {
+  onInputValueChange: () => { },
+  buttonName: 'SUBMIT',
+  defaultInputValue: 'please enter',
+  onSubmit: (value: number) => { alert(value); },
+};

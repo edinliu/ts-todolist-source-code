@@ -1,21 +1,31 @@
 import * as React from 'react';
+import TodoItem from './TodoItem';
 
-export default function TodoList(props: { todoList: string[] }) {
+export default function TodoList(props: {
+  todoList: Array<{
+    todo: string,
+    isDone?: boolean,
+    onClick?: () => any,
+    id: number
+  }>
+}) {
   const { todoList } = props;
-  let key = 0;
-  console.log(todoList);
   return (
     <>
       {
-        todoList.length !== 0 ?
-          <ul>
-            {todoList?.map((todo) => {
-              key = key + 1
-              return <li key={key}>{todo}</li>
-            })}
-          </ul> :
-          <p>Nothing todo!</p>
+        todoList.length !== 0
+          ? (
+            <ul className="list-unstyled">
+              {todoList?.map((item) => {
+                const {
+                  todo, isDone, onClick, id,
+                } = item;
+                return <TodoItem key={id} todo={todo} isDone={isDone} onClick={onClick} />;
+              })}
+            </ul>
+          )
+          : <p>Nothing todo!</p>
       }
     </>
-  )
+  );
 }

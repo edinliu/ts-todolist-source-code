@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
 export interface TodoItemPropsType {
   todo: string,
@@ -7,37 +6,29 @@ export interface TodoItemPropsType {
   onClick?: () => {},
 }
 
-function li(isDone: boolean): any {
-  return styled.li`
-  font-size: 1.5em;
-  text-align: center;
-  &:hover{
-    color: grey;
-  }
-  transition-duration: 0.5s;
-  cursor: pointer;
-  ${isDone && 'text-decoration: line-through;'}
-  color: ${isDone ? 'palevioletred' : 'white'};
-`;
-}
-
 export default function TodoItem(props: TodoItemPropsType) {
   const {
     todo, isDone, onClick,
   } = props;
-  const Li = li(isDone);
+  const style = {
+    fontSize: '1.5em',
+    TextAlignProperty: 'center',
+    transitionDuration: '0.5s',
+    cursor: 'pointer',
+    textDecoration: isDone ? 'line-through' : 'none',
+    color: isDone ? 'palevioletred' : 'white',
+  };
   return (
-    <Li
-      isDone={isDone}
+    <li
+      style={style}
       onClick={onClick}
       className="d-flex align-items-center"
     >
       <span>{todo}</span>
-    </Li>
+    </li>
   );
 }
 TodoItem.defaultProps = {
   isDone: false,
   onClick: () => { },
 };
-

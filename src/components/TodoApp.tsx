@@ -1,22 +1,30 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import InputAndSubmit from './InputAndSubmit';
 import TodoList from './TodoList';
 
 export default function TodoApp() {
   const [todoListState, setTodoListState] = useState([]);
-  // const todoListStateCopy = JSON.parse(JSON.stringify(todoListState));
-  // const changeTodoItemIsDone = (id: number) => {
-  //   console.log(todoListState);
-  // };
+  const [idClick, setIdClick] = useState(null);
+  const changeTodoItemIsDone = (id: number) => {
+    const newTodoListState = JSON.parse(JSON.stringify(todoListState));
+    console.log(newTodoListState);
+    if (newTodoListState[id]) newTodoListState[id].isDone = !newTodoListState[id].isDone;
+    console.log(newTodoListState);
+    setTodoListState(newTodoListState);
+  };
+  useEffect(() => {
+    changeTodoItemIsDone(idClick);
+  }, [idClick]);
   const onSubmitTodo = (value: string) => {
     setTodoListState([...todoListState, {
       todo: value,
       isDone: false,
       id: todoListState.length,
-      // onClick: () => {
-      //   // changeTodoItemIsDone(todoListState.length);
-      // },
+      onClick: () => {
+        console.log("clicked");
+        setIdClick(todoListState.length);
+      },
     }]);
   };
   return (

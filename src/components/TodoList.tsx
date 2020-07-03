@@ -7,9 +7,10 @@ export default function TodoList(props: {
     isDone?: boolean,
     onClick?: () => any,
     id: number
-  }>
+  }>,
+  filter?: string,
 }) {
-  const { todoList } = props;
+  const { todoList, filter } = props;
   return (
     <>
       {
@@ -20,7 +21,7 @@ export default function TodoList(props: {
                 const {
                   todo, isDone, onClick, id,
                 } = item;
-                return <TodoItem key={id} todo={todo} isDone={isDone} onClick={onClick} />;
+                return <TodoItem key={id} todo={todo} isDone={isDone} onClick={onClick} filter={filter} />;
               })}
             </ul>
           )
@@ -29,3 +30,6 @@ export default function TodoList(props: {
     </>
   );
 }
+TodoList.defaultProps = {
+  filter: 'all',
+};

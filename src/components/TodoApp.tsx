@@ -1,52 +1,47 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import _ from 'lodash';
 import InputAndSubmit from './InputAndSubmit';
 import TodoList from './TodoList';
+import TodoFilterPannel from './TodoFilterPannel';
 
 export default function TodoApp() {
   const [todoListState, setTodoListState] = useState([]);
-  const newTodoListState2 = todoListState;
-  const [idClick, setIdClick] = useState(null);
-  const changeTodoItemIsDone = (id: number) => {
-    // const newTodoListState = JSON.parse(JSON.stringify(todoListState));
-    const newTodoListState = _.cloneDeep(newTodoListState2);
-    if (newTodoListState[id]) newTodoListState[id].isDone = !newTodoListState[id].isDone;
-    // for (let i = 0; i < newTodoListState.length; i += 1) {
-    //   newTodoListState[id].onClick = todoListState[id].onClick;
-    // }
-    console.log("clicked");
-    // if (newTodoListState[id]) newTodoListState[id].isDone = !newTodoListState[id]?.isDone;
-    setTodoListState(newTodoListState);
+  const [whichTodoItemClick, setWhichTodoItemClick] = useState(null);
+  const [filter, setFilter] = useState('all');
+  // 步驟3. 使用 changeTodoIsDone 去 setTodoListState 並且把 setWhichTodoItemClick 設回預設值 null
+  const changeTodoIsDone = (id: number) => {
+    const copy = Object.assign([], todoListState);
+    copy[id].isDone = !copy[id].isDone;
+    setTodoListState(copy);
+    setWhichTodoItemClick(null);
   };
-
-  const onTodoItemClick = () => {//id: number
-    // console.log("onTodoItemClick");
-    // setIdClick(id);
-    // changeTodoItemIsDone(id);
-    // console.log(id);
-
-    console.log(newTodoListState2);
-    // const newTodoListState = _.cloneDeep(todoListState);
-    // console.log(newTodoListState);
-    // if (newTodoListState[id]) newTodoListState[id].isDone = !newTodoListState[id].isDone;
-    // setTodoListState(newTodoListState);
-  };
+  // 步驟2. 使用 useEffect 去偵測 setWhichTodoItemClick 並執行 changeTodoIsDone
+  useEffect(() => {
+    if (whichTodoItemClick !== null) {
+      changeTodoIsDone(whichTodoItemClick);
+    }
+  }, [whichTodoItemClick]);
+  /**
+    步驟1: 創建 onSubmitTodo 讓 <InputAndSubmit/> 使用 setTodoListState 更新 todoListState，並且製作一個閉包函式
+    去紀錄當時的 todoListState.length 並作為 <TodoItem/> 的 onClick，當onClick執行時會用 todoListState.length
+    去 setWhichTodoItemClick 改變本組件的 state
+  */
   const onSubmitTodo = (value: string) => {
-    setTodoListState([...todoListState, {
+    const newTodoList = todoListState.concat([{
       todo: value,
       isDone: false,
       id: todoListState.length,
       onClick: () => {
-        // const idd = todoListState.length;
-        onTodoItemClick();
+        setWhichTodoItemClick(todoListState.length);
       },
     }]);
+    setTodoListState(newTodoList);
   };
   return (
     <div className="p-5">
       <InputAndSubmit onSubmit={onSubmitTodo} />
-      <TodoList todoList={todoListState} />
+      <TodoList todoList={todoListState} filter={filter} />
+      <TodoFilterPannel onClick={setFilter} />
     </div>
   );
 }

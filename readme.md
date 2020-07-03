@@ -1,10 +1,11 @@
 # 簡介
 
-Webpack 設定
+typescript todo list
 
-# 使用方法
+# 遇到問題
 
-1. git clone https://github.com/edinliu/my-webpack.git
-2. 修改 webpack.config.js
-3. npm run install-webpack
-4. npm run build
+物件含有 function，經過 JSON.parse(JSON.stringify(obj)) 完全複製，function 會消失
+
+# 解決方法
+
+https://larry850806.github.io/2016/09/20/shallow-vs-deep-copy/

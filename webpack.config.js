@@ -25,7 +25,7 @@ module.exports = (env) => {
   const generalConfig = [
     require('./webpack/assets/html'),
     require("./webpack/scripts/typescript&react"),
-    require('./webpack/scripts/babel-loader&react'),
+    // require('./webpack/scripts/babel-loader&react'),
     // require('./webpack/scripts/babel-loader&react&styled-jsx'),//在typescript中使用styled jsx會出錯
     // require('./webpack/assets/url-loader&img-loader'),
     require('./webpack/assets/url-loader&img-loader&svgr'),

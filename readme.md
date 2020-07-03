@@ -9,3 +9,5 @@ typescript todo list
 # 解決方法
 
 https://larry850806.github.io/2016/09/20/shallow-vs-deep-copy/
+
+使用 Object.assign

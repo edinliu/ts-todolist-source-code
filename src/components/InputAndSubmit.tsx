@@ -41,8 +41,8 @@ export default function InputAndSubmit(props: InputAndSubmit) {
   );
 }
 InputAndSubmit.defaultProps = {
+  onSubmit: (value: number) => { alert(value); },
   onInputValueChange: () => { },
   buttonName: 'SUBMIT',
   defaultInputValue: 'please enter',
-  onSubmit: (value: number) => { alert(value); },
 };

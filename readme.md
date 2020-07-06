@@ -5,4 +5,4 @@
 # 連結
 
 - <a href='https://edinliu.github.io/ts-todolist-demo/'>demo</a>
-- <a>原始碼</a>
+- <a href='https://github.com/edinliu/ts-todolist-source-code'>原始碼</a>

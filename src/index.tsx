@@ -5,15 +5,15 @@ import './index.scss';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../configs/firebaseConfig';
-// import TodoApp from './components/TodoApp';
-import SignIn from './components/SignInBy';
+import TodoApp from './components/TodoApp';
+import * as serviceWorker from './serviceWorker';
 
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <>
-    <SignIn />
-    {/* <TodoApp /> */}
+    <TodoApp />
   </>,
   document.querySelector('#root'),
 );
+serviceWorker.register();

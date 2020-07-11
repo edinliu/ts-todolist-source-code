@@ -11,9 +11,12 @@
     "@emotion/styled": "^10.0.27",
     "@types/styled-components": "^5.1.0",
     "bootstrap": "^4.5.0",
+    "firebase": "^7.15.5",
+    "firebaseui": "^4.5.1",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-firebaseui": "^4.1.0",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

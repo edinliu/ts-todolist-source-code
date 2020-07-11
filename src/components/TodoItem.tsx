@@ -5,6 +5,7 @@ export interface TodoItemPropsType {
   isDone?: boolean,
   onClick?: () => {},
   filter?: string,
+  key: any,
 }
 
 export default function TodoItem(props: TodoItemPropsType) {

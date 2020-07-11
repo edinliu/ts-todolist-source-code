@@ -4,6 +4,9 @@
     "src/components",
     "custom.d.ts"
   ],
+  "exclude": [
+    "other"
+  ],
   "compilerOptions": {
     "plugins": [
       {

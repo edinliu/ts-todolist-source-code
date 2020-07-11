@@ -8,16 +8,16 @@ export default function TodoApp() {
   const [todoListState, setTodoListState] = useState([]);
   const [whichTodoItemClick, setWhichTodoItemClick] = useState(null);
   const [filter, setFilter] = useState('all');
-  const changeTodoIsDone = (id: number) => {
-    todoListState[id].isDone = !todoListState[id].isDone;
-    setTodoListState(todoListState);
-    setWhichTodoItemClick(null);
-  };
   useEffect(() => {
+    const changeTodoIsDone = (id: number) => {
+      todoListState[id].isDone = !todoListState[id].isDone;
+      setTodoListState(todoListState);
+      setWhichTodoItemClick(null);
+    };
     if (whichTodoItemClick !== null) {
       changeTodoIsDone(whichTodoItemClick);
     }
-  }, [whichTodoItemClick]);
+  }, [whichTodoItemClick, todoListState]);
   const handleSubmit = (value: string) => {
     const newTodoList = todoListState.concat([{
       todo: value,

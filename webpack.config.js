@@ -25,11 +25,12 @@ module.exports = (env) => {
   const generalConfig = [
     require('./webpack/assets/html'),
     require("./webpack/scripts/typescript&react"),
-    require('./webpack/scripts/babel-loader&react'),
+    // require('./webpack/scripts/babel-loader&react'),
     // require('./webpack/scripts/babel-loader&react&styled-jsx'),//在typescript中使用styled jsx會出錯
-    // require('./webpack/assets/url-loader&img-loader'),
-    require('./webpack/assets/url-loader&img-loader&svgr'),
-    // require('./webpack/scripts/preact_alias'),//跟dynamic-cdn一起使用，preact不會取代react
+    require('./webpack/assets/url-loader&img-loader'),
+    // require('./webpack/assets/url-loader&img-loader&svgr'),
+    // require('./webpack/scripts/preact_alias'),//假如跟dynamic-cdn一起使用，preact不會取代react
+    require('./webpack/scripts/eslint'),
   ]
   const devConfig = [
     require('./webpack/styles/styleDevRules'),
@@ -37,6 +38,7 @@ module.exports = (env) => {
     // require('./webpack/settings/devServer'),//設定 port:3000
   ]
   const prodConfig = [
+    require('./webpack/settings/copy-file'),
     require('./webpack/styles/styleProdRules'),
     // require('./webpack/settings/dynamic-cdn'),
     // require('./webpack/settings/compression'),//產生.gz

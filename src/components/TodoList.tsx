@@ -21,7 +21,15 @@ export default function TodoList(props: {
                 const {
                   todo, isDone, onClick, id,
                 } = item;
-                return <TodoItem key={id} todo={todo} isDone={isDone} onClick={onClick} filter={filter} />;
+                return (
+                  <TodoItem
+                    key={id}
+                    todo={todo}
+                    isDone={isDone}
+                    onClick={onClick}
+                    filter={filter}
+                  />
+                );
               })}
             </ul>
           )

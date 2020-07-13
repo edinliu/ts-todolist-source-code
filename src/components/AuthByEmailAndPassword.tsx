@@ -19,7 +19,7 @@ export default function AuthByMe() {
     setErrorMessage('');
     setErrorCode('');
   }
-  function signInByEmailAndPassWord() {
+  function createUser() {
     clearAllMessage();
     setIsDisable(true);
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -35,10 +35,12 @@ export default function AuthByMe() {
 
   return (
     <>
-      <h1>Sign In By Email And Password</h1>
-      <input type="text" onChange={(e) => { setEmail(e.target.value); }} placeholder="email" />
-      <input type="text" onChange={(e) => { setPassword(e.target.value); }} placeholder="password" />
-      <button disabled={isDisable} type="button" onClick={signInByEmailAndPassWord}>Sign In</button>
+      <div className="d-flex flex-column w-50 align-items-center">
+        <h3>By email and password</h3>
+        <input type="text" onChange={(e) => { setEmail(e.target.value); }} placeholder="email" className="rounded w-100" />
+        <input type="text" onChange={(e) => { setPassword(e.target.value); }} placeholder="password" className="rounded w-100" />
+        <button disabled={isDisable} type="button" onClick={createUser} className="btn btn-primary w-100">Create User</button>
+      </div>
       {message && (
         <>
           <h5>message:</h5>

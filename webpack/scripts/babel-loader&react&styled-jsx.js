@@ -6,7 +6,7 @@ module.exports = {
   },
   config: function () {
     config.module.rules.push({
-      test: /\.js$/,
+      test: /\.js(x?)$/,
       exclude: /node_modules/,
       use: [
         {

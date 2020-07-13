@@ -27,6 +27,7 @@ module.exports = {
               './src/*.*',
               './src/components/*.*',
               './src/pages/*.*',
+              './src/pages/*/*.*',
             ],
           }),
         ],

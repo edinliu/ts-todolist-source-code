@@ -11,6 +11,8 @@ import CreateUserByEmailAndPassword from './components/Authentication/CreateUser
 import CreateUserByEmail from './components/Authentication/CreateUserByEmail';
 import SignInByEmailAndPassword from './components/Authentication/SignInByEmailAndPassword';
 import UserProfile from './components/Authentication/UserProfile';
+import SignOut from './components/Authentication/SignOut';
+
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
@@ -21,6 +23,7 @@ ReactDOM.render(
         <CreateUserByEmailAndPassword />
         <SignInByEmailAndPassword />
         <UserProfile />
+        <SignOut />
         <TodoApp />
       </div>
     </div>

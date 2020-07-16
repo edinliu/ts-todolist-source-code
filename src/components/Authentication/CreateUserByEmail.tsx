@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as firebase from 'firebase/app';
 import { useState } from 'react';
+import AuthMessage from './AuthMessage';
 
 export default function AuthByMe() {
   const [email, setEmail] = useState('edinliu@gmail.com');
@@ -64,27 +65,12 @@ export default function AuthByMe() {
   }
   return (
     <>
-      <h1>Sign In By Email</h1>
-      <input type="text" onChange={onInputChange} placeholder="email" />
-      <button disabled={isDisable} type="button" onClick={signInByEmailOnly}>Sign In</button>
-      {message && (
-        <>
-          <h5>message:</h5>
-          <p>{message}</p>
-        </>
-      )}
-      {errorCode && (
-        <>
-          <h5>errorCode:</h5>
-          <p>{errorCode}</p>
-        </>
-      )}
-      {errorMessage && (
-        <>
-          <h5>errorMessage:</h5>
-          <p>{errorMessage}</p>
-        </>
-      )}
+      <div className="d-flex flex-column w-100 align-items-center">
+        <h3>Create user by email</h3>
+        <input type="text" onChange={onInputChange} placeholder="email" className="rounded w-100" />
+        <button disabled={isDisable} type="button" onClick={signInByEmailOnly} className="rounded w-100 btn btn-primary">Sign In</button>
+      </div>
+      <AuthMessage message={message} errorCode={errorCode} errorMessage={errorMessage} />
     </>
   );
 }

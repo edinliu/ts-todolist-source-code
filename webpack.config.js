@@ -8,7 +8,7 @@ global.PATH = {
 };
 global.config = {
   entry: {
-    index: path.resolve(global.PATH.src, 'index.jsx')
+    index: path.resolve(global.PATH.src, 'index.tsx')
   },
   output: {
     path: path.resolve(global.PATH.build),
@@ -27,24 +27,24 @@ global.config = {
 module.exports = (env) => {
   const generalConfig = [
     require('./webpack/assets/html'),
-    // require("./webpack/scripts/typescript&react"),
+    require("./webpack/scripts/typescript&react"),
     // require('./webpack/scripts/babel-loader&react'),
-    require('./webpack/scripts/babel-loader&react&styled-jsx'),//在typescript中使用styled jsx會出錯
+    // require('./webpack/scripts/babel-loader&react&styled-jsx'),//在typescript中使用styled jsx會出錯
     // require('./webpack/assets/url-loader&img-loader'),
     require('./webpack/assets/url-loader&img-loader&svgr'),
     // require('./webpack/scripts/preact_alias'),//假如跟dynamic-cdn一起使用，preact不會取代react
-    require('./webpack/settings/bundle-analyzer'),
+    // require('./webpack/settings/bundle-analyzer'),
   ]
   const devConfig = [
     require('./webpack/styles/styleDevRules'),
     require('./webpack/scripts/source-map'),
     // require('./webpack/settings/devServer'),//設定 port:3000
-    require('./webpack/scripts/react-hash-router-alias'),
+    // require('./webpack/scripts/react-hash-router-alias'),
   ]
   const prodConfig = [
     require('./webpack/settings/copy-file'),
     require('./webpack/styles/styleProdRules'),
-    require('./webpack/settings/dynamic-cdn'),
+    // require('./webpack/settings/dynamic-cdn'),
     // require('./webpack/settings/compression'),//產生.gz
   ]
   if (env === 'dev') {

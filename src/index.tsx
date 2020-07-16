@@ -7,14 +7,23 @@ import 'firebase/auth';
 import firebaseConfig from '../configs/firebaseConfig';
 import TodoApp from './components/TodoApp';
 import * as serviceWorker from './serviceWorker';
-import AuthByEmailAndPassword from './components/AuthByEmailAndPassword';
-
+import CreateUserByEmailAndPassword from './components/Authentication/CreateUserByEmailAndPassword';
+import CreateUserByEmail from './components/Authentication/CreateUserByEmail';
+import SignInByEmailAndPassword from './components/Authentication/SignInByEmailAndPassword';
+import UserProfile from './components/Authentication/UserProfile';
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <>
-    <AuthByEmailAndPassword />
-    <TodoApp />
+    <div className="container d-flex justify-content-center">
+      <div className="w-50 d-flex flex-column align-items-center">
+        <CreateUserByEmail />
+        <CreateUserByEmailAndPassword />
+        <SignInByEmailAndPassword />
+        <UserProfile />
+        <TodoApp />
+      </div>
+    </div>
   </>,
   document.querySelector('#root'),
 );

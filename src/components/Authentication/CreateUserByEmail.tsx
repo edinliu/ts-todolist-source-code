@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as firebase from 'firebase/app';
 import { useState } from 'react';
-import AuthMessage from './AuthMessage';
+import AuthMessage from '../AuthMessage';
 
 export default function AuthByMe() {
   const [email, setEmail] = useState('edinliu@gmail.com');

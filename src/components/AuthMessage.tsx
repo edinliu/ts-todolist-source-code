@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default function AuthMessage(props:
   {
-    message: string, errorCode: string, errorMessage: string
+    message: string, errorCode?: string, errorMessage?: string
   }) {
   const { message, errorCode, errorMessage } = props;
   return (
@@ -28,3 +28,7 @@ export default function AuthMessage(props:
     </>
   );
 }
+AuthMessage.defaultProps = {
+  errorCode: '',
+  errorMessage: '',
+};

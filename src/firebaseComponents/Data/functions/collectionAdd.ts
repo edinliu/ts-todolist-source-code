@@ -3,6 +3,7 @@ import firebase from '../../firebase';
 export default function collectionAdd(
   collectionName: string, jsonData: object, setMessage?: (message: string) => void,
 ) {
+  console.log('collectionAdd');
   if (collectionName && jsonData) {
     const db = firebase.firestore();
 

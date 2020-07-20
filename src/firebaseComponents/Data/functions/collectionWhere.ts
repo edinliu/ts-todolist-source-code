@@ -6,6 +6,7 @@ export default function collectionWhere(
   relation: '<' | '<=' | '==' | '>=' | '>' | 'array-contains' | 'in' | 'array-contains-any',
   value: any,
 ) {
+  console.log('collectionWhere');
   const db = firebase.firestore();
   return db.collection(collectionName).where(fieldPath, relation, value);
 }

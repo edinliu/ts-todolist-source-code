@@ -6,7 +6,7 @@ export default function collectonDocGet(
   handleData: (data: firebase.firestore.DocumentData) => void,
   handleError: (err: string) => void,
 ) {
-  console.log('doc get');
+  console.log('collectionDocGet');
   const db = firebase.firestore();
   db.collection(collectionName).doc(docName).get().then((doc) => {
     if (doc.exists) {

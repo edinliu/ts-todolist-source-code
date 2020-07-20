@@ -4,6 +4,7 @@ export default async function readCollection(
   collectionName: string, setMessage?: (message: string) => void,
 ) {
   if (collectionName) {
+    console.log('readCollection');
     try {
       const db = firebase.firestore();
       const idAndData = {};

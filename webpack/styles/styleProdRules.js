@@ -25,6 +25,7 @@ module.exports = {
           require('@fullhuman/postcss-purgecss')({
             content: [
               './src/*.*',
+              './src/**/*.*',
               './src/components/*.*',
               './src/pages/*.*',
               './src/pages/*/*.*',

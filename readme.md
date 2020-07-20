@@ -41,3 +41,14 @@
 ### 未來目標
 
 想要使用 google firebase 的身分驗證 api 與 firestore，替 todo list 增加登入功能。
+
+2020.7.20
+
+- 改成給 todo item 一個 props id，再由 handleClick 去傳回 id 給父組件。
+- 新增登入、登出功能
+  帳號 1:
+  hello15948@haha.com
+  15847fafas
+  帳號 2:
+  test456789@haha.com
+  hfdhs4878

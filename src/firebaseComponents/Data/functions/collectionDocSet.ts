@@ -1,5 +1,4 @@
-import * as firebase from 'firebase/app';
-import 'firebase/firestore';
+import firebase from '../../firebase';
 
 export default function collectonDocSet(
   collectionName: string, docName: string, jsonData: object,

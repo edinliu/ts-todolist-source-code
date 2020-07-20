@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as firebase from 'firebase/app';
 import { useState } from 'react';
+import firebase from '../firebase';
 import AuthMessage from '../AuthMessage';
 
 export default function AuthByMe() {

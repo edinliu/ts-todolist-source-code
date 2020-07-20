@@ -1,6 +1,4 @@
 import * as React from 'react';
-// import { useState, useEffect } from 'react';
-// import firebase from 'firebase';
 import useFirebaseGetUser from './hooks/useFirebaseGetUser';
 
 export default function AuthObserver() {

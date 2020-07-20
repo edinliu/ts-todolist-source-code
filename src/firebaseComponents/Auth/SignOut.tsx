@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import * as firebase from 'firebase/app';
+import firebase from '../firebase';
 
 export default function SignOut() {
   const [message, setMessage] = useState('');

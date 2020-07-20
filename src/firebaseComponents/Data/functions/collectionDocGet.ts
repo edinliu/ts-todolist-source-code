@@ -1,5 +1,4 @@
-import * as firebase from 'firebase/app';
-import 'firebase/firestore';
+import firebase from '../../firebase';
 
 export default function collectonDocGet(
   collectionName: string,
@@ -7,6 +6,7 @@ export default function collectonDocGet(
   handleData: (data: firebase.firestore.DocumentData) => void,
   handleError: (err: string) => void,
 ) {
+  console.log('doc get');
   const db = firebase.firestore();
   db.collection(collectionName).doc(docName).get().then((doc) => {
     if (doc.exists) {

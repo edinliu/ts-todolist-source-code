@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import firebase from 'firebase/app';
+import firebase from '../../firebase';
 
 export default function useAddData(collectionName: string, jsonData: object) {
   const [message, setMessage] = useState('');

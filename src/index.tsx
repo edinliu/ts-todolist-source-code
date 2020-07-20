@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import 'bootstrap/scss/bootstrap.scss';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
-import TodoApp from './components/TodoApp/TodoApp';
+import TodoApp from './components/TodoApp';
 import AuthPage from './firebaseComponents/Auth/AuthPage';
 
 ReactDOM.render(

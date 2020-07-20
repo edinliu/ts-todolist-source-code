@@ -15,7 +15,6 @@ export default function TodoApp() {
   const [filter, setFilter] = useState('all');
   const stringTodoState = JSON.stringify(todoListState);
   useEffect(() => {
-    console.log('save data');
     if (todoListState.length !== 0 && user) collectionDocSet('user', user.uid, { todos: stringTodoState });
     if (todoListState.length === 0 && user) {
       collectionDocGet(
